@@ -1,6 +1,7 @@
 plugins {
     id("multiplatform-setup")
     id("android-setup")
+    kotlin("plugin.serialization")
 }
 
 kotlin {
@@ -18,6 +19,8 @@ kotlin {
                 implementation(Dependencies.Ktor.logging)
 
                 api(Dependencies.Kodein.core)
+
+                api(Dependencies.SqlDelight.core)
             }
         }
 
