@@ -45,4 +45,13 @@ object Dependencies {
         const val android = "io.ktor:ktor-client-android:$version"
         const val okhttp = "io.ktor:ktor-client-okhttp:$version"
     }
+
+    object SqlDelight {
+        private const val version = "1.5.4"
+        const val gradlePlugin = "com.squareup.sqldelight:gradle-plugin:$version"
+        const val runtime = "com.squareup.sqldelight:runtime:$version"
+        const val android = "com.squareup.sqldelight:android-driver:$version"
+        const val ios = "com.squareup.sqldelight:native-driver:$version"
+        const val desktop = "com.squareup.sqldelight:sqlite-driver:$version"
+    }
 }

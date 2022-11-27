@@ -19,6 +19,9 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.3.0"
     }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
