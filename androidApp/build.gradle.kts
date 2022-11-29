@@ -35,11 +35,12 @@ android {
 }
 
 dependencies {
+    implementation(project(":common:core"))
+    implementation(project(":common:umbrella-core"))
     implementation(project(":common:umbrella-compose"))
-    implementation("androidx.compose.ui:ui:1.3.1")
-    implementation("androidx.compose.ui:ui-tooling:1.3.1")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.3.1")
-    implementation("androidx.compose.foundation:foundation:1.3.1")
-    implementation("androidx.compose.material:material:1.3.1")
-    implementation("androidx.activity:activity-compose:1.6.1")
+    implementation(project(":common:games:api"))
+
+    implementation("com.google.android.material:material:1.7.0")
+    implementation("androidx.appcompat:appcompat:1.5.1")
+    implementation("androidx.compose.runtime:runtime:1.3.1")
 }
