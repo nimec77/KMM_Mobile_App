@@ -9,6 +9,6 @@ class KtorGamesDataSource(val httpClient: HttpClient) {
     }
 
     suspend fun searchGames(query: String): Game {
-        return Game("", "")
+        return Game("1", "Warcraft")
     }
 }
