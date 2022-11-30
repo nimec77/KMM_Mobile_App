@@ -19,10 +19,10 @@ class MainActivity : ComponentActivity() {
 
         val gamesRepository = instance<GamesRepository>()
         CoroutineScope(context = Dispatchers.IO).launch {
-            val game = gamesRepository.searchGames(query = "Mario")
+            val game = gamesRepository.fetchAllGames().first()
             withContext(Dispatchers.Main) {
                 setContent {
-                    Greeting(name = game.name)
+                    Greeting(name = game.title)
                 }
             }
         }
