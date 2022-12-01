@@ -26,6 +26,14 @@ object Dependencies {
     object Android {
         private const val version = "7.3.1"
         const val gradlePlugin = "com.android.tools.build:gradle:$version"
+
+        object Compose {
+            private const val version = "1.3.1"
+            const val runtime = "androidx.compose.runtime:runtime:$version"
+            const val ui = "androidx.compose.ui:ui:$version"
+            const val material = "androidx.compose.material:material:$version"
+            const val tooling = "androidx.compose.ui:ui-tooling:$version"
+            const val icons = "androidx.compose.material:material-icons-core:$version"        }
     }
 
     object Kodein {
@@ -54,5 +62,20 @@ object Dependencies {
         const val android = "com.squareup.sqldelight:android-driver:$version"
         const val ios = "com.squareup.sqldelight:native-driver:$version"
         const val desktop = "com.squareup.sqldelight:sqlite-driver:$version"
+    }
+
+    object Other {
+        object ViewModel {
+            private const val version = "0.12"
+            const val core = "com.adeo:kviewmodel:$version"
+            const val compose = "com.adeo:kviewmodel-compose:$version"
+            const val odyssey = "com.adeo:kviewmodel-odyssey:$version"
+        }
+
+        object Navigation {
+            private const val version = "1.2.0"
+            const val core = "io.github.alexgladkov:odyssey-core:$version"
+            const val compose = "io.github.alexgladkov:odyssey-compose:$version"
+        }
     }
 }

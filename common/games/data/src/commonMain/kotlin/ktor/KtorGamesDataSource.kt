@@ -19,7 +19,13 @@ class KtorGamesDataSource(private val httpClient: HttpClient) {
         }.body()
     }
 
-    suspend fun searchGames(query: String): Game {
-        return Game("1", "Warcraft")
+    suspend fun searchGames(query: String): List<KtorSearchGame> {
+        return httpClient.post {
+            header("Bearer-Authorization", "2bac6ef1-ca6d-42ca-96f3-923c68e88eca")
+            url {
+                path("/games/search")
+                setBody(KtorSearchRequest(searchQuery = query))
+            }
+        }.body()
     }
 }

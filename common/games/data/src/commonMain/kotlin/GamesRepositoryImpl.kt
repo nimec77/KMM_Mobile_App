@@ -11,7 +11,7 @@ class GamesRepositoryImpl(
         return remoteDataSource.fetchAllGames().map { it.mapToGame() }
     }
 
-    override suspend fun searchGames(query: String): Game {
-        return remoteDataSource.searchGames(query)
+    override suspend fun searchGames(query: String): List<Game> {
+        return remoteDataSource.searchGames(query).map { it.mapToGame() }
     }
 }
