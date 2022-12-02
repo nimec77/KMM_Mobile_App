@@ -26,6 +26,7 @@ object Dependencies {
     object Android {
         private const val version = "7.3.1"
         const val gradlePlugin = "com.android.tools.build:gradle:$version"
+        const val composeActivity = "androidx.activity:activity-compose:1.6.1"
 
         object Compose {
             private const val version = "1.3.1"
