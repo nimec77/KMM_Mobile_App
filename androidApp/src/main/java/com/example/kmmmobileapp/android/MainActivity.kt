@@ -12,24 +12,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import navigation.setupThemedNavigation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val gamesRepository = instance<GamesRepository>()
-        CoroutineScope(context = Dispatchers.IO).launch {
-            val games = gamesRepository.fetchAllGames()
-            withContext(Dispatchers.Main) {
-                setContent {
-                    Greeting(name = games.size.toString())
-                }
-            }
-        }
-    }
-
-    @Composable
-    fun Greeting(name: String) {
-        Text(text = "Hello $name!", color = Color.White)
+        setupThemedNavigation()
     }
 }
