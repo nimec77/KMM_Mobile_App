@@ -9,6 +9,32 @@ class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEve
     initialState = LoginViewState(email = "", password = "")
 ) {
     override fun obtainEvent(viewEvent: LoginEvent) {
-        TODO("Not yet implemented")
+        when (viewEvent) {
+            is LoginEvent.LoginClicked -> sendLogin()
+            is LoginEvent.EmailChanged -> obtainEmailChanged(viewEvent.value)
+            is LoginEvent.ForgotClicked -> openForgot()
+            is LoginEvent.PasswordChanged -> obtainPasswordChanged(viewEvent.value)
+            is LoginEvent.RegistrationClicked -> openRegistration()
+        }
+    }
+
+    private fun openRegistration() {
+        viewAction = LoginAction.OpenRegistrationScreen
+    }
+
+    private fun openForgot() {
+        viewAction = LoginAction.OpenForgotPasswordScreen
+    }
+
+    private fun obtainPasswordChanged(value: String) {
+        viewState = viewState.copy(password = value)
+    }
+
+    private fun obtainEmailChanged(value: String) {
+        viewState = viewState.copy(email = value)
+    }
+
+    private fun sendLogin() {
+        viewState = viewState.copy(isSending = true)
     }
 }
