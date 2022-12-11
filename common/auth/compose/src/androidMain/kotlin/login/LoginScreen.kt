@@ -14,41 +14,42 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.adeo.kviewmodel.compose.observeAsState
+import com.adeo.kviewmodel.odyssey.StoredViewModel
 import login.models.LoginEvent
 import theme.Theme
 
 @Composable
 fun LoginScreen() {
-    val viewModel = LoginViewModel()
-    val state = viewModel.viewStates().observeAsState()
 
-    Column(
-        modifier = Modifier.padding(30.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        Text(
-            "Login Now",
-            color = Theme.colors.thirdTextColor,
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
-        )
+    StoredViewModel(factory = { LoginViewModel() }) { viewModel ->
+        val state = viewModel.viewStates().observeAsState()
+        Column(
+            modifier = Modifier.padding(30.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Text(
+                "Login Now",
+                color = Theme.colors.thirdTextColor,
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
+            )
 
-        Text(
-            modifier = Modifier.padding(top = 15.dp),
-            text = "Welcome back to PlayZone! Enter your email address and your password to " +
-                    "enjoy the latest features of PlayZone",
-            fontSize = 14.sp,
-            textAlign = TextAlign.Center,
-            color = Theme.colors.highlightTextColor,
-        )
+            Text(
+                modifier = Modifier.padding(top = 15.dp),
+                text = "Welcome back to PlayZone! Enter your email address and your password to " +
+                        "enjoy the latest features of PlayZone",
+                fontSize = 14.sp,
+                textAlign = TextAlign.Center,
+                color = Theme.colors.highlightTextColor,
+            )
 
-        TextField(
-            value = state.value.email,
-            onValueChange = { viewModel.obtainEvent(LoginEvent.EmailChanged(it)) },
-        )
+            TextField(
+                value = state.value.email,
+                onValueChange = { viewModel.obtainEvent(LoginEvent.EmailChanged(it)) },
+            )
 
-        Spacer(modifier = Modifier.height(50.dp))
-
-
+            Spacer(modifier = Modifier.height(50.dp))
+        }
     }
+
 }

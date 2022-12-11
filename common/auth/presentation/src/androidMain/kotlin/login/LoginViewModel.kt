@@ -1,6 +1,8 @@
 package login
 
+import GamesRepository
 import com.adeo.kviewmodel.BaseSharedViewModel
+import di.Inject
 import login.models.LoginAction
 import login.models.LoginEvent
 import login.models.LoginViewState
@@ -8,6 +10,8 @@ import login.models.LoginViewState
 class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEvent>(
     initialState = LoginViewState(email = "", password = "")
 ) {
+    private val gamesRepository: GamesRepository = Inject.instance()
+
     override fun obtainEvent(viewEvent: LoginEvent) {
         when (viewEvent) {
             is LoginEvent.LoginClicked -> sendLogin()
