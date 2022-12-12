@@ -1,8 +1,10 @@
 package login
 
+import AuthRepository
 import GamesRepository
 import com.adeo.kviewmodel.BaseSharedViewModel
 import di.Inject
+import kotlinx.coroutines.launch
 import login.models.LoginAction
 import login.models.LoginEvent
 import login.models.LoginViewState
@@ -10,7 +12,7 @@ import login.models.LoginViewState
 class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEvent>(
     initialState = LoginViewState(email = "", password = "")
 ) {
-    private val gamesRepository: GamesRepository = Inject.instance()
+    private val authRepository: AuthRepository = Inject.instance()
 
     override fun obtainEvent(viewEvent: LoginEvent) {
         when (viewEvent) {
@@ -40,5 +42,18 @@ class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEve
 
     private fun sendLogin() {
         viewState = viewState.copy(isSending = true)
+        viewModelScope.launch {
+            try {
+                val response = authRepository.login(viewState.email, viewState.password)
+                if (response.token.isNotBlank()) {
+                    viewState = viewState.copy(email = "", password = "", isSending = false)
+                    viewAction = LoginAction.OpenMainFlow
+                } else {
+                    viewState = viewState.copy(isSending = false)
+                }
+            } catch (e: Exception) {
+                viewState = viewState.copy(isSending = false)
+            }
+        }
     }
 }

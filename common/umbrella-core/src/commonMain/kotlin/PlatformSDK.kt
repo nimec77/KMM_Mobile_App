@@ -19,6 +19,7 @@ object PlatformSDK {
                     umbrellaModule,
                     coreModule,
                     gamesModule,
+                    authModule,
                 )
             }.direct
         )
