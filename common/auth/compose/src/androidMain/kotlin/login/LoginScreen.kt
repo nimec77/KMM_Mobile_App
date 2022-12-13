@@ -1,14 +1,13 @@
 package login
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import android.util.Log
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -40,16 +39,72 @@ fun LoginScreen() {
                         "enjoy the latest features of PlayZone",
                 fontSize = 14.sp,
                 textAlign = TextAlign.Center,
-                color = Theme.colors.highlightTextColor,
-            )
-
-            TextField(
-                value = state.value.email,
-                onValueChange = { viewModel.obtainEvent(LoginEvent.EmailChanged(it)) },
+                color = Theme.colors.hintTextColor,
             )
 
             Spacer(modifier = Modifier.height(50.dp))
+
+            TextField(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp),
+                value = state.value.email,
+                enabled = !state.value.isSending,
+                colors = TextFieldDefaults.textFieldColors(
+                    backgroundColor = Theme.colors.textFieldBackground,
+                    textColor = Theme.colors.textFieldTextColor,
+                    cursorColor = Theme.colors.highlightTextColor,
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent,
+                ),
+                shape = RoundedCornerShape(10.dp),
+                onValueChange = { viewModel.obtainEvent(LoginEvent.EmailChanged(it)) },
+            )
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            TextField(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp),
+                value = state.value.password,
+                enabled = !state.value.isSending,
+                colors = TextFieldDefaults.textFieldColors(
+                    backgroundColor = Theme.colors.textFieldBackground,
+                    textColor = Theme.colors.textFieldTextColor,
+                    cursorColor = Theme.colors.highlightTextColor,
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent,
+                ),
+                shape = RoundedCornerShape(10.dp),
+                onValueChange = {
+                    viewModel.obtainEvent(LoginEvent.PasswordChanged(it))
+                },
+            )
+
+            Spacer(modifier = Modifier.height(50.dp))
+
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp),
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = Theme.colors.primaryAction,
+                    contentColor = Theme.colors.primaryTextColor
+                ),
+                enabled = !state.value.isSending,
+                shape = RoundedCornerShape(10.dp),
+                onClick = {
+                    viewModel.obtainEvent(LoginEvent.LoginClicked)
+                }) {
+                Text(
+                    text = "Login Now",
+                    color = Theme.colors.primaryTextColor,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
         }
     }
-
 }
+

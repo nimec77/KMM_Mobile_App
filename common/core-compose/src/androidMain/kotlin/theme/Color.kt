@@ -13,6 +13,8 @@ data class PlayzoneColors(
     val thirdTextColor: Color,
     val tagColor: Color,
     val tagTextColor: Color,
+    val textFieldBackground: Color,
+    val textFieldTextColor: Color,
 )
 
 val palette = PlayzoneColors(
@@ -25,6 +27,8 @@ val palette = PlayzoneColors(
     thirdTextColor = Color(0xFFEEF2FB),
     tagColor = Color(0x1844A9F4),
     tagTextColor = Color(0xFF44A9F4),
+    textFieldBackground = Color(0xFF1F2430),
+    textFieldTextColor = Color(0xFF696C75),
 )
 
 val LocalColorProvider =
