@@ -8,7 +8,7 @@ object Dependencies {
             private const val plugin = "1.6.21"
             const val gradlePlugin = "org.jetbrains.kotlin:kotlin-serialization:$plugin"
 
-            private const val version = "1.4.1"
+            private const val version = "1.4.0"
             const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:$version"
         }
 

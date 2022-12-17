@@ -36,6 +36,12 @@ kotlin {
             }
         }
 
+        iosSimulatorArm64Main {
+            dependencies {
+                implementation(Dependencies.Ktor.ios)
+            }
+        }
+
         desktopMain {
             dependencies {
                 implementation(Dependencies.Ktor.okhttp)
