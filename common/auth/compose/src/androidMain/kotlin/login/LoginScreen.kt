@@ -1,14 +1,20 @@
 package login
 
 import android.util.Log
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Clear
+import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -57,6 +63,9 @@ fun LoginScreen() {
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent,
                 ),
+                placeholder = {
+                    Text("Your login", color = Theme.colors.hintTextColor)
+                },
                 shape = RoundedCornerShape(10.dp),
                 onValueChange = { viewModel.obtainEvent(LoginEvent.EmailChanged(it)) },
             )
@@ -76,6 +85,28 @@ fun LoginScreen() {
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent,
                 ),
+                visualTransformation = if (state.value.passwordHidden) {
+                    PasswordVisualTransformation()
+                } else {
+                    VisualTransformation.None
+                },
+                placeholder = {
+                    Text("Your password", color = Theme.colors.hintTextColor)
+                },
+                trailingIcon = {
+                    Icon(
+                        modifier = Modifier.clickable {
+                            viewModel.obtainEvent(LoginEvent.PasswordShowClicked)
+                        },
+                        imageVector = if (state.value.passwordHidden) {
+                            Icons.Outlined.Clear
+                        } else {
+                            Icons.Outlined.Lock
+                        },
+                        contentDescription = "Password hidden",
+                        tint = Theme.colors.hintTextColor,
+                    )
+                },
                 shape = RoundedCornerShape(10.dp),
                 onValueChange = {
                     viewModel.obtainEvent(LoginEvent.PasswordChanged(it))
