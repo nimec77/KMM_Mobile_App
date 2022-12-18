@@ -40,11 +40,14 @@ dependencies {
     implementation(project(":common:umbrella-core"))
     implementation(project(":common:umbrella-compose"))
     implementation(project(":common:games:api"))
+    implementation(project(":common:umbrella-core"))
 
-    implementation("androidx.compose.ui:ui:1.3.1")
-    implementation("androidx.compose.ui:ui-tooling:1.3.1")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.3.1")
-    implementation("androidx.compose.foundation:foundation:1.3.1")
-    implementation("androidx.compose.material:material:1.3.1")
-    implementation("androidx.activity:activity-compose:1.6.1")
+    implementation(Dependencies.Android.Compose.runtime)
+    implementation(Dependencies.Android.Compose.ui)
+    implementation(Dependencies.Android.Compose.material)
+    implementation(Dependencies.Android.Compose.icons)
+    implementation(Dependencies.Android.Compose.tooling)
+
+    implementation("com.google.android.material:material:1.7.0")
+    implementation("androidx.appcompat:appcompat:1.5.1")
 }
