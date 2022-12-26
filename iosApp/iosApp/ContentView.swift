@@ -1,17 +1,16 @@
 import SwiftUI
-import SharedSDK
 
 struct ContentView: View {
-    
-//    private let viewModel
-    
-	var body: some View {
-		Text("Hello, iOS")
-	}
+
+    var body: some View {
+        LoginView()
+				.background(Color.backgroundPrimary)
+                .background(ignoresSafeAreaEdges: [.all])
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
-	static var previews: some View {
-		ContentView()
-	}
+    static var previews: some View {
+        ContentView()
+    }
 }

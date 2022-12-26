@@ -10,7 +10,7 @@ kotlin {
     cocoapods {
         summary = "PlayZone iOS SDK"
         homepage = "https://google.com"
-        ios.deploymentTarget = "14.1"
+        ios.deploymentTarget = "15.1"
 
         framework {
             transitiveExport = false

@@ -38,7 +38,7 @@ object Dependencies {
     }
 
     object Kodein {
-        private const val version = "7.14.0"
+        private const val version = "7.16.0"
         const val core = "org.kodein.di:kodein-di:$version"
     }
 
