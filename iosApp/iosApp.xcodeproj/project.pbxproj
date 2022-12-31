@@ -13,8 +13,11 @@
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		804EC24C2959D5A20054CE1D /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804EC24B2959D5A20054CE1D /* ActionButton.swift */; };
 		805B9D492951FE6600D9D234 /* Color + Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805B9D482951FE6600D9D234 /* Color + Custom.swift */; };
+		8072644A29601C1A008705AC /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8072644929601C1A008705AC /* LoginScreen.swift */; };
 		80EB4D312957160400CB6D62 /* CommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EB4D302957160400CB6D62 /* CommonTextField.swift */; };
+		AF2EF2EFD20E1894866B34CF /* ViewModel + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EFBAD57863467EC0704BB /* ViewModel + View.swift */; };
 		AF2EF434AE6DED07DCC86146 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EF65148923822572B27E3 /* LoginView.swift */; };
+		AF2EFBB54D51AEE5D4A86CD3 /* Flow + Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EF3B6231C00FC76D60F86 /* Flow + Publisher.swift */; };
 		FCEF0692308CECC26CFB0647 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 795DC8C7960CA3E9D45C095F /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,9 +31,12 @@
 		795DC8C7960CA3E9D45C095F /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		804EC24B2959D5A20054CE1D /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		805B9D482951FE6600D9D234 /* Color + Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Custom.swift"; sourceTree = "<group>"; };
+		8072644929601C1A008705AC /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		80EB4D302957160400CB6D62 /* CommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextField.swift; sourceTree = "<group>"; };
 		94614ED2287D1292A701AB9A /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
+		AF2EF3B6231C00FC76D60F86 /* Flow + Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flow + Publisher.swift"; sourceTree = "<group>"; };
 		AF2EF65148923822572B27E3 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		AF2EFBAD57863467EC0704BB /* ViewModel + View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewModel + View.swift"; sourceTree = "<group>"; };
 		E350F2F2C37C5AC645BE2C37 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				805B9D482951FE6600D9D234 /* Color + Custom.swift */,
+				AF2EF3B6231C00FC76D60F86 /* Flow + Publisher.swift */,
+				AF2EFBAD57863467EC0704BB /* ViewModel + View.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -133,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				AF2EF65148923822572B27E3 /* LoginView.swift */,
+				8072644929601C1A008705AC /* LoginScreen.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -253,10 +262,13 @@
 			files = (
 				805B9D492951FE6600D9D234 /* Color + Custom.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				8072644A29601C1A008705AC /* LoginScreen.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				80EB4D312957160400CB6D62 /* CommonTextField.swift in Sources */,
 				AF2EF434AE6DED07DCC86146 /* LoginView.swift in Sources */,
 				804EC24C2959D5A20054CE1D /* ActionButton.swift in Sources */,
+				AF2EFBB54D51AEE5D4A86CD3 /* Flow + Publisher.swift in Sources */,
+				AF2EF2EFD20E1894866B34CF /* ViewModel + View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

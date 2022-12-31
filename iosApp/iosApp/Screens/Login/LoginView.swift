@@ -8,7 +8,8 @@ import SharedSDK
 
 struct LoginView: View {
 
-    private let loginViewModel = LoginViewModel()
+    let viewState: LoginViewState
+    let eventHandler: (LoginEvent) -> Void
 
     var body: some View {
         VStack {
@@ -27,20 +28,21 @@ struct LoginView: View {
 
                 Spacer().frame(height: 50)
 
-                CommonTextField(hint: "Login", enabled: true, isSecure: false) { newValue in
-                    loginViewModel.obtainEvent(viewEvent: .EmailChanged(value: newValue))
+                CommonTextField(hint: "Login", enabled: true) { newValue in
+                    eventHandler(.EmailChanged(value: newValue))
                 }
 
                 Spacer().frame(height: 24)
 
-                CommonTextField(hint: "Password", enabled: true, isSecure: true) { newValue in
-                    loginViewModel.obtainEvent(viewEvent: .PasswordChanged(value: newValue))
+                CommonTextField(hint: "Password", enabled: true, isSecure: !viewState.passwordHidden) { newValue in
+                    eventHandler(.PasswordChanged(value: newValue))
                 }
 
                 LoginActionView(onForgotClicked: {
-                    loginViewModel.obtainEvent(viewEvent: .ForgotClicked())
+                    eventHandler(.ForgotClicked())
+
                 }, onSubmitClicked: {
-                    loginViewModel.obtainEvent(viewEvent: .LoginClicked())
+                    eventHandler(.LoginClicked())
                 })
             }
 
@@ -54,7 +56,7 @@ struct LoginView: View {
                 Text("Create one")
                         .foregroundColor(.tintColor)
                         .onTapGesture {
-                            loginViewModel.obtainEvent(viewEvent: .RegistrationClicked())
+                            eventHandler(.RegistrationClicked())
                         }
             }
         }
@@ -90,6 +92,10 @@ struct LoginActionView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView().background(Color.backgroundPrimary)
+        LoginView(viewState: LoginViewState(email: "test@test.ru", password: "123456", isSending: false, passwordHidden: true), eventHandler: { event in
+            print(event)
+        })
+                .background(Color.backgroundPrimary)
+                .background(ignoresSafeAreaEdges: [.all])
     }
 }
