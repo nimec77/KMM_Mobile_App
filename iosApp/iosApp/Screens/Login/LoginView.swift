@@ -20,7 +20,10 @@ struct LoginView: View {
                         .fontWeight(.bold)
                         .font(.system(size: 24))
 
-                Text("Welcome back to PlayZone! Enter yout email adress and your password to enjoy the latest features of PlayZone")
+                Text("""
+                     Welcome back to PlayZone! Enter yout email adress and your password to enjoy the latest features 
+                     of PlayZone
+                     """)
                         .foregroundColor(.textPrimary.opacity(0.5))
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.center)
@@ -28,17 +31,18 @@ struct LoginView: View {
 
                 Spacer().frame(height: 50)
 
-                CommonTextField(hint: "Login", enabled: true) { newValue in
+                CommonTextField(hint: "Login", enabled: !viewState.isSending) { newValue in
                     eventHandler(.EmailChanged(value: newValue))
                 }
 
                 Spacer().frame(height: 24)
 
-                CommonTextField(hint: "Password", enabled: true, isSecure: !viewState.passwordHidden) { newValue in
+                CommonTextField(hint: "Password", enabled: !viewState.isSending,
+                        isSecure: viewState.passwordHidden) { newValue in
                     eventHandler(.PasswordChanged(value: newValue))
                 }
 
-                LoginActionView(onForgotClicked: {
+                LoginActionView(viewState: viewState, onForgotClicked: {
                     eventHandler(.ForgotClicked())
 
                 }, onSubmitClicked: {
@@ -65,6 +69,7 @@ struct LoginView: View {
 
 struct LoginActionView: View {
 
+    let viewState: LoginViewState
     let onForgotClicked: () -> Void
     let onSubmitClicked: () -> Void
 
@@ -81,7 +86,7 @@ struct LoginActionView: View {
                 Spacer().frame(width: 30)
             }
             Spacer().frame(height: 30)
-            ActionButton(title: "Login Now", enabled: true) {
+            ActionButton(title: "Login Now", enabled: !viewState.isSending) {
                 onSubmitClicked()
             }
                     .frame(height: 56)
@@ -92,7 +97,8 @@ struct LoginActionView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(viewState: LoginViewState(email: "test@test.ru", password: "123456", isSending: false, passwordHidden: true), eventHandler: { event in
+        LoginView(viewState: LoginViewState(email: "test@test.ru", password: "123456", isSending: false,
+                passwordHidden: true), eventHandler: { event in
             print(event)
         })
                 .background(Color.backgroundPrimary)

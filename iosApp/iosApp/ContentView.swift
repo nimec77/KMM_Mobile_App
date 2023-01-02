@@ -3,7 +3,7 @@ import SwiftUI
 struct ContentView: View {
 
     var body: some View {
-        LoginView()
+        LoginScreen()
 				.background(Color.backgroundPrimary)
                 .background(ignoresSafeAreaEdges: [.all])
     }
