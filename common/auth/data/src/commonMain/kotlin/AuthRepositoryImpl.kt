@@ -17,6 +17,6 @@ class AuthRepositoryImpl(
     }
 
     override fun isUserLoggedIn(): Boolean {
-        TODO("Not yet implemented")
+        return true
     }
 }

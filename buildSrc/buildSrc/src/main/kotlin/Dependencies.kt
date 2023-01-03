@@ -37,6 +37,12 @@ object Dependencies {
             const val icons = "androidx.compose.material:material-icons-core:$version"        }
     }
 
+    object Settings {
+        private const val version = "1.0.0-RC"
+        const val core = "com.russhwolf:multiplatform-settings:$version"
+        const val noargs= "com.russhwolf:multiplatform-settings-no-arg:$version"
+    }
+
     object Kodein {
         private const val version = "7.16.0"
         const val core = "org.kodein.di:kodein-di:$version"

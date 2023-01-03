@@ -14,6 +14,16 @@ class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEve
 ) {
     private val authRepository: AuthRepository = Inject.instance()
 
+    init {
+        checkUserLoggedIn()
+    }
+
+    private fun checkUserLoggedIn() {
+        if (authRepository.isUserLoggedIn()) {
+            viewAction = LoginAction.OpenMainFlow
+        }
+    }
+
     override fun obtainEvent(viewEvent: LoginEvent) {
         when (viewEvent) {
             is LoginEvent.LoginClicked -> sendLogin()
@@ -48,21 +58,20 @@ class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEve
     private fun sendLogin() {
         viewState = viewState.copy(isSending = true)
         viewModelScope.launch {
-            delay(2000)
-            viewState = viewState.copy(isSending = false)
-            viewAction = LoginAction.OpenMainFlow
-            // TODO: вернуть код для работы с сервером
-//            try {
-//                val response = authRepository.login(viewState.email, viewState.password)
-//                if (response.token.isNotBlank()) {
-//                    viewState = viewState.copy(email = "", password = "", isSending = false)
-//                    viewAction = LoginAction.OpenMainFlow
-//                } else {
-//                    viewState = viewState.copy(isSending = false)
-//                }
-//            } catch (e: Exception) {
-//                viewState = viewState.copy(isSending = false)
-//            }
+//            delay(2000)
+//            viewState = viewState.copy(isSending = false)
+//            viewAction = LoginAction.OpenMainFlow
+            try {
+                val response = authRepository.login(viewState.email, viewState.password)
+                if (response.token.isNotBlank()) {
+                    viewState = viewState.copy(email = "", password = "", isSending = false)
+                    viewAction = LoginAction.OpenMainFlow
+                } else {
+                    viewState = viewState.copy(isSending = false)
+                }
+            } catch (e: Exception) {
+                viewState = viewState.copy(isSending = false)
+            }
         }
     }
 }
