@@ -11,10 +11,10 @@ import SwiftUI
 struct CommonTextField: View {
 
     @State private var value: String = ""
-    @State private var isPasswordHidden: Bool = true
     private let hint: String
     private let enabled: Bool
     private let isSecure: Bool
+    private var isPasswordHidden: Bool
     private let onValueChanged: (String) -> Void
     private let onPasswordHiddenClicked: () -> Void
 
@@ -24,6 +24,7 @@ struct CommonTextField: View {
         self.hint = hint
         self.enabled = enabled
         self.isSecure = isSecure
+        self.isPasswordHidden = isPasswordHidden
         self.onPasswordHiddenClicked = onPasswordHiddenClicked
         self.onValueChanged = onValueChanged
     }

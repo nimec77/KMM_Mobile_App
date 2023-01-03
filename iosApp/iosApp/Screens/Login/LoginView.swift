@@ -38,7 +38,10 @@ struct LoginView: View {
                 Spacer().frame(height: 24)
 
                 CommonTextField(hint: "Password", enabled: !viewState.isSending,
-                        isSecure: viewState.passwordHidden) { newValue in
+                        isSecure: true, isPasswordHidden: viewState.passwordHidden,
+                        onPasswordHiddenClicked: {
+                            eventHandler(.PasswordShowClicked())
+                        }) { newValue in
                     eventHandler(.PasswordChanged(value: newValue))
                 }
 
