@@ -10,6 +10,9 @@ import SwiftUI
 import SharedSDK
 
 struct LoginScreen: View {
+    @State private var isForgotPasswordScreenPresented: Bool = false
+    @State private var isRegistrationScreenPresented: Bool = false
+    @State private var isMainScreenPresented: Bool = false
     private let loginViewModel = LoginViewModel()
 
     var body: some View {
@@ -18,5 +21,21 @@ struct LoginScreen: View {
                 loginViewModel.obtainEvent(viewEvent: event)
             }
         }
+                .sheet(isPresented: $isRegistrationScreenPresented, content: { RegistrationScreen() })
+                .sheet(isPresented: $isForgotPasswordScreenPresented, content: { ForgotScreen() })
+                .fullScreenCover(isPresented: $isMainScreenPresented, content: { MainView() })
+                .onReceive(sharePublisher(loginViewModel.viewActions())) { action in
+                    switch (action) {
+                    case LoginAction.OpenForgotPasswordScreen():
+                        isForgotPasswordScreenPresented = true
+                    case LoginAction.OpenRegistrationScreen():
+                        isRegistrationScreenPresented = true
+                    case LoginAction.OpenMainFlow():
+                        isMainScreenPresented = true
+
+                    default:
+                        break
+                    }
+                }
     }
 }

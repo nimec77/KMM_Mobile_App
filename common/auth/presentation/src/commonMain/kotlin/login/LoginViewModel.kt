@@ -3,6 +3,7 @@ package login
 import AuthRepository
 import com.adeo.kviewmodel.BaseSharedViewModel
 import di.Inject
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import login.models.LoginAction
 import login.models.LoginEvent
@@ -47,17 +48,21 @@ class LoginViewModel : BaseSharedViewModel<LoginViewState, LoginAction, LoginEve
     private fun sendLogin() {
         viewState = viewState.copy(isSending = true)
         viewModelScope.launch {
-            try {
-                val response = authRepository.login(viewState.email, viewState.password)
-                if (response.token.isNotBlank()) {
-                    viewState = viewState.copy(email = "", password = "", isSending = false)
-                    viewAction = LoginAction.OpenMainFlow
-                } else {
-                    viewState = viewState.copy(isSending = false)
-                }
-            } catch (e: Exception) {
-                viewState = viewState.copy(isSending = false)
-            }
+            delay(2000)
+            viewState = viewState.copy(isSending = false)
+            viewAction = LoginAction.OpenMainFlow
+            // TODO: вернуть код для работы с сервером
+//            try {
+//                val response = authRepository.login(viewState.email, viewState.password)
+//                if (response.token.isNotBlank()) {
+//                    viewState = viewState.copy(email = "", password = "", isSending = false)
+//                    viewAction = LoginAction.OpenMainFlow
+//                } else {
+//                    viewState = viewState.copy(isSending = false)
+//                }
+//            } catch (e: Exception) {
+//                viewState = viewState.copy(isSending = false)
+//            }
         }
     }
 }

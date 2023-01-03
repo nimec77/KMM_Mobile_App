@@ -57,7 +57,7 @@ struct CommonTextField: View {
                         Button {
                             onPasswordHiddenClicked()
                         } label: {
-                            Image(systemName: "eye.slash")
+                            Image(systemName: "eye")
                         }
                                 .foregroundColor(.textPrimary.opacity(0.5))
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
@@ -77,7 +77,7 @@ struct CommonTextField: View {
                         Button {
                             onPasswordHiddenClicked()
                         } label: {
-                            Image(systemName: "eye")
+                            Image(systemName: "eye.slash")
                         }
                                 .foregroundColor(.textPrimary.opacity(0.5))
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))

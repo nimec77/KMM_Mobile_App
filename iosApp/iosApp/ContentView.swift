@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    
     var body: some View {
         LoginScreen()
-				.background(Color.backgroundPrimary)
-                .background(ignoresSafeAreaEdges: [.all])
+            .background(Color.backgroundPrimary)
+            .background(ignoresSafeAreaEdges: [.all])
     }
 }
 
