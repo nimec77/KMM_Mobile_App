@@ -15,6 +15,6 @@ class SettingsAuthDataSource(
     }
 
     companion object {
-        private val tokenKey = "tokenKey"
+        private const val tokenKey = "tokenKey"
     }
 }
