@@ -10,10 +10,15 @@ import SwiftUI
 import SharedSDK
 
 struct HomeScreen: View {
-//    private let viewModel = HomeViewModel()
+    private let viewModel = HomeViewModel()
+    @State private var isProfilePresented = false
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ObservingView(statePublisher: statePublisher(viewModel.viewStates())) { viewState in
+            HomeView(viewState: viewState) { event in
+                viewModel.obtainEvent(viewEvent: event)
+            }
+        }
     }
 }
 

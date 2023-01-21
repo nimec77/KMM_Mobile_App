@@ -24,6 +24,7 @@
 		80EB4D312957160400CB6D62 /* CommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EB4D302957160400CB6D62 /* CommonTextField.swift */; };
 		AF2EF2EFD20E1894866B34CF /* ViewModel + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EFBAD57863467EC0704BB /* ViewModel + View.swift */; };
 		AF2EF434AE6DED07DCC86146 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EF65148923822572B27E3 /* LoginView.swift */; };
+		AF2EF7D6D2E205EF2A549175 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EFF40EEFAAC9CFF7CD2E8 /* HomeView.swift */; };
 		AF2EFBB54D51AEE5D4A86CD3 /* Flow + Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2EF3B6231C00FC76D60F86 /* Flow + Publisher.swift */; };
 		FCEF0692308CECC26CFB0647 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 795DC8C7960CA3E9D45C095F /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		AF2EF3B6231C00FC76D60F86 /* Flow + Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flow + Publisher.swift"; sourceTree = "<group>"; };
 		AF2EF65148923822572B27E3 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AF2EFBAD57863467EC0704BB /* ViewModel + View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewModel + View.swift"; sourceTree = "<group>"; };
+		AF2EFF40EEFAAC9CFF7CD2E8 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E350F2F2C37C5AC645BE2C37 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				802B90102963F17D00660ADE /* HomeScreen.swift */,
+				AF2EFF40EEFAAC9CFF7CD2E8 /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				802B90012963EEF000660ADE /* ForgotScreen.swift in Sources */,
 				AF2EFBB54D51AEE5D4A86CD3 /* Flow + Publisher.swift in Sources */,
 				AF2EF2EFD20E1894866B34CF /* ViewModel + View.swift in Sources */,
+				AF2EF7D6D2E205EF2A549175 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
