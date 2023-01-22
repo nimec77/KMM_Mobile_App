@@ -19,6 +19,17 @@ struct HomeScreen: View {
                 viewModel.obtainEvent(viewEvent: event)
             }
         }
+                .sheet(isPresented: $isProfilePresented) {
+                    Text("Hello, Profile!")
+                }
+                .onReceive(sharePublisher(viewModel.viewActions())) { action in
+                    switch action {
+                    case HomeAction.ShowUserProfile():
+                        isProfilePresented = true
+                    default:
+                        break
+                    }
+                }
     }
 }
 

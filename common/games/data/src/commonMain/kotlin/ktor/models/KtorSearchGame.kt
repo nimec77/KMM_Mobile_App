@@ -6,16 +6,16 @@ import models.Game
 
 @Serializable
 data class KtorSearchGame(
-    @SerialName("gameID") val gameId: String,
-    @SerialName("title") val title: String,
+    @SerialName("gameId") val gameId: String,
+    @SerialName("name") val name: String,
     @SerialName("description") val description: String,
     @SerialName("version") val version: String,
-    @SerialName("size") val size: String,
+    @SerialName("size") val size: Int,
 )
 
 fun KtorSearchGame.mapToGame(): Game {
     return Game(
         gameId = gameId,
-        title = title,
+        name = name,
     )
 }
