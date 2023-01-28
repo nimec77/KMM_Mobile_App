@@ -40,7 +40,6 @@ dependencies {
     implementation(project(":common:umbrella-core"))
     implementation(project(":common:umbrella-compose"))
     implementation(project(":common:games:api"))
-    implementation(project(":common:umbrella-core"))
 
     implementation(Dependencies.Android.Compose.runtime)
     implementation(Dependencies.Android.Compose.ui)
@@ -49,5 +48,5 @@ dependencies {
     implementation(Dependencies.Android.Compose.tooling)
 
     implementation("com.google.android.material:material:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.5.1")
+    implementation("androidx.appcompat:appcompat:1.6.0")
 }
