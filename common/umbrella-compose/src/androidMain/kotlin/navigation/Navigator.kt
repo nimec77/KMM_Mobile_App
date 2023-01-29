@@ -1,6 +1,7 @@
 package navigation
 
 import SplashScreen
+import mainFlow
 import ru.alexgladkov.odyssey.compose.extensions.screen
 import ru.alexgladkov.odyssey.compose.navigation.RootComposeBuilder
 
@@ -10,4 +11,5 @@ fun RootComposeBuilder.generateGraph() {
     }
 
     authFlow()
+    mainFlow()
 }
