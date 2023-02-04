@@ -19,5 +19,7 @@ object NavigationTree {
         Search,
         Event,
         Videos,
+        Profile,
+        Game,
     }
 }

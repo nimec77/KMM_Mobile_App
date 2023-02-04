@@ -18,6 +18,14 @@ object Dependencies {
         }
     }
 
+    object Image {
+        object Coil {
+            private const val version = "2.2.2"
+            const val core = "io.coil-kt:coil:$version"
+            const val compose = "io.coil-kt:coil-compose:$version"
+        }
+    }
+
     object Compose {
         private const val version = "1.2.1"
         const val gradlePlugin = "org.jetbrains.compose:compose-gradle-plugin:$version"

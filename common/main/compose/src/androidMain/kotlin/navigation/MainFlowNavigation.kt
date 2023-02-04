@@ -1,3 +1,4 @@
+import androidx.compose.material.Text
 import home.HomeScreen
 import navigation.NavigationTree
 import navigation.tabs.*
@@ -15,6 +16,10 @@ fun RootComposeBuilder.mainFlow() {
     tab(HomeTab()) {
       screen(name = NavigationTree.Main.Home.name) {
         HomeScreen()
+      }
+
+      screen(name = NavigationTree.Main.Profile.name) {
+        Text("Hello, Profile")
       }
     }
 
