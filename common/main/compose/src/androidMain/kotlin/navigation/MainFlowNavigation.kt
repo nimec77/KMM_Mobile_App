@@ -7,6 +7,7 @@ import ru.alexgladkov.odyssey.compose.extensions.screen
 import ru.alexgladkov.odyssey.compose.extensions.tab
 import ru.alexgladkov.odyssey.compose.navigation.RootComposeBuilder
 import search.SearchScreen
+import theme.Theme
 
 fun RootComposeBuilder.mainFlow() {
   bottomNavigation(
@@ -19,7 +20,7 @@ fun RootComposeBuilder.mainFlow() {
       }
 
       screen(name = NavigationTree.Main.Profile.name) {
-        Text("Hello, Profile")
+        Text("Hello, Profile", color = Theme.colors.secondaryTextColor)
       }
     }
 

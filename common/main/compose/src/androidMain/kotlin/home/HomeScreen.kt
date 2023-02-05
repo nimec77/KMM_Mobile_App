@@ -22,7 +22,7 @@ fun HomeScreen() {
 
     when (viewAction.value) {
       is HomeAction.ShowUserProfile -> rootController.push(
-        screen = NavigationTree.Main.Dashboard.name // Поменять на Profile
+        screen = NavigationTree.Main.Profile.name
       )
 
       null -> {}
