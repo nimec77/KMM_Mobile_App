@@ -30,15 +30,5 @@ class KtorGamesDataSource(
         setBody(KtorSearchRequest(searchQuery = query))
       }
     }.body()
-//    val httpResponse = httpClient.post {
-//      header("Bearer-Authorization", cacheDataSource.fetchToken())
-//      url {
-//        path("/games/search")
-//        setBody(KtorSearchRequest(searchQuery = query))
-//      }
-//    }
-//    val body: List<KtorSearchGame> = httpResponse.body()
-//    println(body)
-//    return  emptyList()
   }
 }

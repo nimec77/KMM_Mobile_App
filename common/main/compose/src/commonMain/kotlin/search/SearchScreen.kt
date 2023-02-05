@@ -12,7 +12,7 @@ import search.models.SearchAction
 fun SearchScreen() {
   val rootController = LocalRootController.current
 
-  StoredViewModel({SearchViewModel()}) {viewModel ->
+  StoredViewModel({ SearchViewModel() }) { viewModel ->
     val viewState = viewModel.viewStates().observeAsState()
     val viewAction = viewModel.viewActions().observeAsState()
 
