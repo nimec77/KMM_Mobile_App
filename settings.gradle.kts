@@ -8,6 +8,7 @@ pluginManagement {
 
 rootProject.name = "KMM_Mobile_App"
 include(":androidApp")
+include(":desktop")
 include(":shared")
 include(":common:auth:api")
 include(":common:auth:presentation")

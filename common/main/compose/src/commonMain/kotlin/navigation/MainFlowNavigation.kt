@@ -1,4 +1,5 @@
 import androidx.compose.material.Text
+import home.HomeScreen
 import navigation.NavigationTree
 import navigation.tabs.*
 import ru.alexgladkov.odyssey.compose.extensions.bottomNavigation
