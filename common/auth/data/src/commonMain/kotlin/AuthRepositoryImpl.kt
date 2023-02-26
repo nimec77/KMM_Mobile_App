@@ -9,12 +9,13 @@ class AuthRepositoryImpl(
 ) : AuthRepository {
     override suspend fun login(login: String, password: String): Token {
 
-        val token =  remoteDataSource.performLogin(
+        val token = remoteDataSource.performLogin(
             request = KtorLoginRequest(
                 login = login,
                 password = password
             )
         )
+
         cacheDataSource.saveToken(token = token.token)
 
         return token
@@ -22,5 +23,9 @@ class AuthRepositoryImpl(
 
     override fun isUserLoggedIn(): Boolean {
         return cacheDataSource.fetchToken().isNotBlank()
+    }
+
+    override fun fetchToken(): String {
+        return cacheDataSource.fetchToken()
     }
 }

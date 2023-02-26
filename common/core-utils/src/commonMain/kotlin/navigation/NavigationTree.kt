@@ -22,4 +22,11 @@ object NavigationTree {
         Profile,
         Game,
     }
+
+    enum class Desktop {
+        Dashboard,
+        Games,
+        Events,
+        CreateGame,
+    }
 }
