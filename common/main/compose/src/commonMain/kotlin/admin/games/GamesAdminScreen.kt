@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.adeo.kviewmodel.compose.ViewModel
 import com.adeo.kviewmodel.compose.observeAsState
+import common.GameShortCell
 import navigation.NavigationTree
 import ru.alexgladkov.odyssey.compose.extensions.push
 import ru.alexgladkov.odyssey.compose.local.LocalRootController
@@ -54,8 +55,7 @@ fun GamesAdminScreen() {
 
       viewState.games.forEach {
         item {
-          // TODO: Implement GameShortCell
-//          GameShortCell(it)
+          GameShortCell(it)
         }
       }
     }

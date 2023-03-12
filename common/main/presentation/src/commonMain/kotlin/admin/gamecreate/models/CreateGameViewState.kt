@@ -1,7 +1,10 @@
 package admin.gamecreate.models
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class CreateGameViewState(
-  val title: String = "",
+  val name: String = "",
   val description: String = "",
   val version: String = "",
   val size: Int = 0,

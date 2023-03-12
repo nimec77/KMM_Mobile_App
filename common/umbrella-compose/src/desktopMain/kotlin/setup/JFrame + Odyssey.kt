@@ -15,7 +15,7 @@ import javax.swing.WindowConstants
 
 fun JFrame.setupThemeNavigation() {
   val rootController = RootComposeBuilder().apply {
-    generateGraph()
+    generateGraph(navigation.NavigationSource.Desktop)
   }.build()
 
   defaultCloseOperation = WindowConstants.EXIT_ON_CLOSE

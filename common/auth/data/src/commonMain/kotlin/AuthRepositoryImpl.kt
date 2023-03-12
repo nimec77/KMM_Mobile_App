@@ -5,7 +5,7 @@ import models.Token
 
 class AuthRepositoryImpl(
     private val remoteDataSource: KtorAuthRemoteDataSource,
-    private val cacheDataSource: SettingsAuthDataSource
+    private val loadDataSource: SettingsAuthDataSource
 ) : AuthRepository {
     override suspend fun login(login: String, password: String): Token {
 
@@ -16,16 +16,16 @@ class AuthRepositoryImpl(
             )
         )
 
-        cacheDataSource.saveToken(token = token.token)
+        loadDataSource.saveToken(token = token.token)
 
         return token
     }
 
     override fun isUserLoggedIn(): Boolean {
-        return cacheDataSource.fetchToken().isNotBlank()
+        return loadDataSource.fetchToken().isNotBlank()
     }
 
-    override fun fetchToken(): String {
-        return cacheDataSource.fetchToken()
+    override fun loadToken(): String {
+        return loadDataSource.fetchToken()
     }
 }

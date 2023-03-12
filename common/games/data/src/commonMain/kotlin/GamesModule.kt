@@ -12,6 +12,6 @@ val gamesModule = DI.Module("gamesModule") {
     }
 
     bind<GamesRepository>() with singleton {
-        GamesRepositoryImpl(instance(), instance())
+        GamesRepositoryImpl(instance())
     }
 }

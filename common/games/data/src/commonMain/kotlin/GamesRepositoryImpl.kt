@@ -1,11 +1,10 @@
 import ktor.KtorGamesDataSource
 import ktor.models.mapToGame
+import models.CreateGameInfo
 import models.Game
-import sqldelight.SqlDelightGamesDataSource
 
 class GamesRepositoryImpl(
     private val remoteDataSource: KtorGamesDataSource,
-    private val localDataSource: SqlDelightGamesDataSource,
 ) : GamesRepository {
     override suspend fun fetchAllGames(): List<Game> {
         return remoteDataSource.fetchAllGames().map { it.mapToGame() }
@@ -15,5 +14,9 @@ class GamesRepositoryImpl(
         return remoteDataSource.searchGames(query).map {
             it.mapToGame()
         }
+    }
+
+    override suspend fun createGame(game: CreateGameInfo) {
+        remoteDataSource.createGame(game)
     }
 }
